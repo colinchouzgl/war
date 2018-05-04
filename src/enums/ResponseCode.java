@@ -38,7 +38,10 @@ public enum ResponseCode {
      * 3001-4000 Policy
      */
     //3001-3100 RaiseFund
-    RAISE_FUND_IN_A_FORCE(3001, "Can't raise fund when you are in a force");
+    RAISE_FUND_IN_A_FORCE(3001, "Can't raise fund when you are in a force"),
+
+    //3101-3200 RaiseSupply
+    RAISE_SUPPLY_IN_A_FORCE(3101, "Can't raise supply when you are in a force");
 
     @Getter
     private final int value;

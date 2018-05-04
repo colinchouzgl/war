@@ -28,9 +28,27 @@ public class PlayerDAO {
         return supply == null ? 0 : supply;
     }
 
+    public static void updatePlayerSupply(Integer supply) {
+        Cache.put(Constants.KEY_PLAYER_SUPPLY, supply);
+        Force playerForce = getPlayerForce();
+        if (playerForce != null) {
+            playerForce.setSupply(supply);
+            BizDAO.updateForce(playerForce);
+        }
+    }
+
     public static Integer getPlayerArmySize() {
         Integer armySize = Cache.get(Constants.KEY_PLAYER_ARMY_SIZE);
         return armySize == null ? 0 : armySize;
+    }
+
+    public static void updatePlayerArmySize(Integer armySize) {
+        Cache.put(Constants.KEY_PLAYER_ARMY_SIZE, armySize);
+        Force playerForce = getPlayerForce();
+        if (playerForce != null) {
+            playerForce.setArmySize(armySize);
+            BizDAO.updateForce(playerForce);
+        }
     }
 
     public static Integer getPlayerId() {
