@@ -2,6 +2,7 @@ package common.dao;
 
 import common.Cache;
 import common.Constants;
+import entity.Force;
 
 /**
  * @author Zhou Guanliang
@@ -14,7 +15,12 @@ public class PlayerDAO {
     }
 
     public static void updatePlayerMoney(Integer money) {
-        Cache.put(Constants.KEY_PLAYER_MONEY,money);
+        Cache.put(Constants.KEY_PLAYER_MONEY, money);
+        Force playerForce = getPlayerForce();
+        if (playerForce != null) {
+            playerForce.setMoney(money);
+            BizDAO.updateForce(playerForce);
+        }
     }
 
     public static Integer getPlayerSupply() {
@@ -29,5 +35,9 @@ public class PlayerDAO {
 
     public static Integer getPlayerId() {
         return Cache.get(Constants.KEY_PLAYER_ID);
+    }
+
+    public static Force getPlayerForce() {
+        return BizDAO.getForceByGeneralId(getPlayerId());
     }
 }

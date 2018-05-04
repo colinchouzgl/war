@@ -27,7 +27,7 @@ public enum ResponseCode {
     EMPLOY_MONEY_NOT_ENOUGH(1103, "Money is not enough to employ"),
 
     //1201-1300 Communicate
-    COMMUNICATE_MONEY_NOT_ENOUGH(1201, "Money is not enough to communicate");
+    COMMUNICATE_MONEY_NOT_ENOUGH(1201, "Money is not enough to communicate"),
 
     /**
      * 2001-3000 Military
@@ -38,6 +38,7 @@ public enum ResponseCode {
      * 3001-4000 Policy
      */
     //3001-3100 RaiseFund
+    RAISE_FUND_IN_A_FORCE(3001, "Can't raise fund when you are in a force");
 
     @Getter
     private final int value;

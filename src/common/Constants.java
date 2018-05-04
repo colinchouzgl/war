@@ -10,6 +10,7 @@ public class Constants {
     public final static int DAMAGE_LEVEL_3 = 3;
     public final static int LIKING_LEVEL_SPAN = 20;
     public final static int COMMUNICATE_PRICE = 200;
+    public final static int RAISE_FUND_AMOUNT = 300;
 
     //Keys
     public final static String TABLE_ID_FORCE = "id_force";

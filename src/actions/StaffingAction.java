@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class StaffingAction {
     public static Response getTeamUpOptions() {
-        Force playerForce = BizDAO.getForceByGeneralId(PlayerDAO.getPlayerId());
+        Force playerForce = PlayerDAO.getPlayerForce();
         //team up only supported when player is in no force
         if (playerForce != null) {
             return Response.fail(ResponseCode.TEAM_UP_IN_A_FORCE);
@@ -36,7 +36,7 @@ public class StaffingAction {
     }
 
     public static Response teamUp(Integer generalId) {
-        if (generalId.equals(PlayerDAO.getPlayerId()) || BizDAO.getForceByGeneralId(PlayerDAO.getPlayerId()) != null) {
+        if (generalId.equals(PlayerDAO.getPlayerId()) || PlayerDAO.getPlayerForce() != null) {
             return Response.fail(ResponseCode.DATA_EXCEPTION);
         }
         General general = BizDAO.getGeneral(generalId);
@@ -55,18 +55,16 @@ public class StaffingAction {
             List<Integer> generalIds = new ArrayList<>();
             generalIds.add(PlayerDAO.getPlayerId());
             generalIds.add(generalId);
-            Integer restMoney = PlayerDAO.getPlayerMoney() - general.getPrice();
 
             Force force = new Force();
             force.setEmperorId(PlayerDAO.getPlayerId());
             force.setGeneralIds(generalIds);
             force.setAllyIds(new ArrayList<>());
-            force.setMoney(restMoney);
             force.setSupply(PlayerDAO.getPlayerSupply());
             force.setArmySize(PlayerDAO.getPlayerArmySize());
             Integer newForceId = BizDAO.addForce(force);
 
-            PlayerDAO.updatePlayerMoney(restMoney);
+            PlayerDAO.updatePlayerMoney(PlayerDAO.getPlayerMoney() - general.getPrice());
             data.put("newForceId", newForceId);
         }
         data.put("success", success);
@@ -74,7 +72,7 @@ public class StaffingAction {
     }
 
     public static Response getEmployOptions() {
-        Force playerForce = BizDAO.getForceByGeneralId(PlayerDAO.getPlayerId());
+        Force playerForce = PlayerDAO.getPlayerForce();
         //employ only supported when player is in a force
         if (playerForce == null) {
             return Response.fail(ResponseCode.EMPLOY_IN_NO_FORCE);
@@ -93,7 +91,7 @@ public class StaffingAction {
     }
 
     public static Response employ(Integer generalId) {
-        Force playerForce = BizDAO.getForceByGeneralId(PlayerDAO.getPlayerId());
+        Force playerForce = PlayerDAO.getPlayerForce();
         if (generalId.equals(PlayerDAO.getPlayerId()) || playerForce == null) {
             return Response.fail(ResponseCode.DATA_EXCEPTION);
         }
@@ -115,12 +113,10 @@ public class StaffingAction {
                 generalIds = new ArrayList<>();
             }
             generalIds.add(generalId);
-            Integer restMoney = PlayerDAO.getPlayerMoney() - general.getPrice();
             playerForce.setGeneralIds(generalIds);
-            playerForce.setMoney(restMoney);
 
             BizDAO.updateForce(playerForce);
-            PlayerDAO.updatePlayerMoney(restMoney);
+            PlayerDAO.updatePlayerMoney(PlayerDAO.getPlayerMoney() - general.getPrice());
         }
         data.put("success", success);
         return Response.succeed(data);
