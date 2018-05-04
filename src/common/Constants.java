@@ -12,6 +12,8 @@ public class Constants {
     public final static int COMMUNICATE_PRICE = 200;
     public final static int RAISE_FUND_AMOUNT = 300;
     public final static int RAISE_SUPPLY_AMOUNT = 300;
+    public final static int TRADE_MONEY_AMOUNT = 500;
+    public final static int TRADE_SUPPLY_AMOUNT = 500;
 
     //Keys
     public final static String TABLE_ID_FORCE = "id_force";

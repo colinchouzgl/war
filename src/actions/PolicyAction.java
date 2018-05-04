@@ -30,4 +30,15 @@ public class PolicyAction {
         PlayerDAO.updatePlayerSupply(Constants.RAISE_SUPPLY_AMOUNT);
         return Response.succeed();
     }
+
+    public static Response trade() {
+        Force playerForce = PlayerDAO.getPlayerForce();
+        //raise supply only supported when player is in no force
+        if (playerForce == null) {
+            return Response.fail(ResponseCode.TRADE_IN_NO_FORCE);
+        }
+        PlayerDAO.updatePlayerMoney(Constants.TRADE_MONEY_AMOUNT);
+        PlayerDAO.updatePlayerSupply(Constants.TRADE_SUPPLY_AMOUNT);
+        return Response.succeed();
+    }
 }

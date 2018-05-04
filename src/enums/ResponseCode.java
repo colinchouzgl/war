@@ -41,7 +41,10 @@ public enum ResponseCode {
     RAISE_FUND_IN_A_FORCE(3001, "Can't raise fund when you are in a force"),
 
     //3101-3200 RaiseSupply
-    RAISE_SUPPLY_IN_A_FORCE(3101, "Can't raise supply when you are in a force");
+    RAISE_SUPPLY_IN_A_FORCE(3101, "Can't raise supply when you are in a force"),
+
+    //3201-3300 Trade
+    TRADE_IN_NO_FORCE(3201, "Can't trade when you are in no force");
 
     @Getter
     private final int value;
