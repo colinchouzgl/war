@@ -1,0 +1,136 @@
+{
+  "cities" : [ {
+    "id" : 1,
+    "name" : "XiaPi",
+    "neighborCityIds" : [ 2 ],
+    "damageLevel" : 0,
+    "happiness" : 100,
+    "emperorId" : 1,
+    "governorId" : 1,
+    "officerIds" : [ 2 ],
+    "localGeneralIds" : [ 1, 2, 3, 8, 9 ],
+    "building1" : 0,
+    "building2" : 2,
+    "moneyGrowSpeed" : 200,
+    "supplyGrowSpeed" : 200,
+    "armySizeGrowSpeed" : 200
+  }, {
+    "id" : 2,
+    "name" : "XuChang",
+    "neighborCityIds" : [ 1, 3 ],
+    "damageLevel" : 0,
+    "happiness" : 100,
+    "emperorId" : 4,
+    "governorId" : 4,
+    "officerIds" : [ 5 ],
+    "localGeneralIds" : [ 4, 5, 6 ],
+    "building1" : 0,
+    "building2" : 1,
+    "moneyGrowSpeed" : 200,
+    "supplyGrowSpeed" : 200,
+    "armySizeGrowSpeed" : 200
+  }, {
+    "id" : 3,
+    "name" : "LuoYang",
+    "neighborCityIds" : [ 2 ],
+    "damageLevel" : 0,
+    "happiness" : 100,
+    "emperorId" : 0,
+    "governorId" : 0,
+    "officerIds" : [ ],
+    "localGeneralIds" : [ 7 ],
+    "building1" : 2,
+    "building2" : 0,
+    "moneyGrowSpeed" : 200,
+    "supplyGrowSpeed" : 200,
+    "armySizeGrowSpeed" : 200
+  } ],
+  "forces" : [ {
+    "id" : 1,
+    "emperorId" : 1,
+    "generalIds" : [ 1, 2, 3 ],
+    "allyIds" : [ ],
+    "money" : 1000,
+    "supply" : 1000,
+    "armySize" : 1000
+  }, {
+    "id" : 2,
+    "emperorId" : 4,
+    "generalIds" : [ 4, 5, 6 ],
+    "allyIds" : [ ],
+    "money" : 1000,
+    "supply" : 1000,
+    "armySize" : 1000
+  } ],
+  "generals" : [ {
+    "id" : 1,
+    "name" : "LiuBei",
+    "gender" : 0,
+    "price" : 3000,
+    "liking" : 40,
+    "player" : false
+  }, {
+    "id" : 2,
+    "name" : "GuanYu",
+    "gender" : 0,
+    "price" : 4000,
+    "liking" : 40,
+    "player" : false
+  }, {
+    "id" : 3,
+    "name" : "ZhangFei",
+    "gender" : 0,
+    "price" : 3000,
+    "liking" : 40,
+    "player" : false
+  }, {
+    "id" : 4,
+    "name" : "CaoCao",
+    "gender" : 0,
+    "price" : 3000,
+    "liking" : 40,
+    "player" : false
+  }, {
+    "id" : 5,
+    "name" : "XiaHouDun",
+    "gender" : 0,
+    "price" : 4000,
+    "liking" : 40,
+    "player" : false
+  }, {
+    "id" : 6,
+    "name" : "CaoRen",
+    "gender" : 0,
+    "price" : 2000,
+    "liking" : 40,
+    "player" : false
+  }, {
+    "id" : 7,
+    "name" : "LvBu",
+    "gender" : 0,
+    "price" : 4500,
+    "liking" : 40,
+    "player" : false
+  }, {
+    "id" : 8,
+    "name" : "DiaoChan",
+    "gender" : 1,
+    "price" : 3000,
+    "liking" : 80,
+    "player" : false
+  }, {
+    "id" : 9,
+    "name" : "Colin",
+    "gender" : 0,
+    "price" : 0,
+    "liking" : 0,
+    "player" : true
+  } ],
+  "id_city" : 3,
+  "id_force" : 2,
+  "id_general" : 9,
+  "player_army_size" : 1000,
+  "player_id" : 9,
+  "player_money" : 5000,
+  "player_supply" : 1000
+}

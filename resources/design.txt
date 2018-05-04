@@ -1,0 +1,20 @@
+config drama
+-fixed: city,general
+-variable: force
+
+-----------------------
+actions:
+
+staffing
+-teamUp,employ,exile,abdicate,appoint,communicate,party,feast
+military
+-conscript,trainSingle,trainAll,highlyTrainAll,cureSingle,cureAll,highlyCureAll
+policy
+-sell,levy,trade,build,moveCapital,fix,fixAll,donate,donateAll
+strategy
+-ally,request,poach,alienate
+fight
+-invade,defend,attack,entrust
+special
+-marry,swear
+rest
