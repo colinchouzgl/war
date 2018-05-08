@@ -6,6 +6,7 @@ import common.Utils;
 import entity.City;
 import entity.Force;
 import entity.General;
+import enums.Building;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.ArrayList;
@@ -139,5 +140,19 @@ public class BizDAO {
             }
         }
         return false;
+    }
+
+    public static Building getBuilding(Integer cityId, Integer buildingNum) {
+        City city = getCity(cityId);
+        if (city == null) {
+            return Building.ERROR;
+        }
+        if (buildingNum == 1) {
+            return Building.fromValue(city.getBuilding1());
+        }
+        if (buildingNum == 2) {
+            return Building.fromValue(city.getBuilding2());
+        }
+        return Building.ERROR;
     }
 }

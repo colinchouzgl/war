@@ -4,6 +4,7 @@ import common.Constants;
 import common.Response;
 import common.dao.PlayerDAO;
 import entity.Force;
+import enums.Building;
 import enums.ResponseCode;
 
 /**
@@ -32,13 +33,21 @@ public class PolicyAction {
     }
 
     public static Response trade() {
-        Force playerForce = PlayerDAO.getPlayerForce();
-        //raise supply only supported when player is in no force
-        if (playerForce == null) {
-            return Response.fail(ResponseCode.TRADE_IN_NO_FORCE);
-        }
+        //TODO check valid
         PlayerDAO.updatePlayerMoney(Constants.TRADE_MONEY_AMOUNT);
         PlayerDAO.updatePlayerSupply(Constants.TRADE_SUPPLY_AMOUNT);
         return Response.succeed();
+    }
+
+    public static Response build(Integer cityId, Integer buildingNum, Building building) {
+        //TODO check valid
+        if (PlayerDAO.getPlayerMoney() < Constants.BUILD_MONEY_COST
+                || PlayerDAO.getPlayerSupply() < Constants.BUILD_SUPPLY_COST) {
+            return Response.fail(ResponseCode.BUILD_RESOURCE_NOT_ENOUGN);
+        }
+
+
+        //TODO
+        return null;
     }
 }
