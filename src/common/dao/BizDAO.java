@@ -54,7 +54,7 @@ public class BizDAO {
         for (General general : all) {
             if (general.getId().equals(newData.getId())) {
                 all.remove(general);
-                all.add(general);
+                all.add(newData);
                 Cache.put(Constants.KEY_GENERALS, all);
                 return true;
             }
@@ -134,7 +134,7 @@ public class BizDAO {
         for (Force force : all) {
             if (force.getId().equals(newData.getId())) {
                 all.remove(force);
-                all.add(force);
+                all.add(newData);
                 Cache.put(Constants.KEY_FORCES, all);
                 return true;
             }
